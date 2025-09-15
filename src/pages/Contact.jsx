@@ -20,8 +20,11 @@ function Contact() {
         {/* Hidden fields for FormSubmit */}
         <input type="hidden" name="_captcha" value="false" />
         <input type="hidden" name="_template" value="table" />
-        <input type="hidden" name="_next" value="https://sv-modular-interiors.vercel.app/thank-you" />
-
+        <input
+          type="hidden"
+          name="_next"
+          value="https://sv-modular-interiors.vercel.app/thank-you"
+        />
 
         <button type="submit" className="btn">
           Submit
