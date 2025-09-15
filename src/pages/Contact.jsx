@@ -4,13 +4,21 @@ import { Link } from "react-router-dom"; // Import Link for the "Go to Home" but
 function Contact() {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault(); // Prevents the default page reload
-    
-    // You can add your form submission logic here, e.g., using fetch()
-    // For Formsubmit, the form's 'action' and 'method' attributes handle the email sending automatically.
-    
-    setIsSubmitted(true); // Set state to true to show the thank you message
+
+    const formData = new FormData(event.target);
+
+    try {
+      await fetch("https://formsubmit.co/svmodularinteriors21@gmail.com", {
+        method: "POST",
+        body: formData,
+      });
+      setIsSubmitted(true); // Show thank-you page
+    } catch (error) {
+      console.error("Form submission error:", error);
+      alert("Something went wrong. Please try again later.");
+    }
   };
 
   return (
@@ -28,15 +36,18 @@ function Contact() {
           <h1><center>Contact Us</center></h1>
           <form
             className="contact-form"
-            action="https://formsubmit.co/svmodularinteriors21@gmail.com"
-            method="POST"
-            onSubmit={handleSubmit} // Use the onSubmit handler
+            onSubmit={handleSubmit} // custom submit handler
           >
             <input type="text" name="name" placeholder="Full Name*" required />
             <input type="email" name="email" placeholder="Email Address*" required />
             <input type="text" name="mobile" placeholder="Mobile Number*" required />
             <input type="text" name="city" placeholder="City*" required />
             <textarea name="message" placeholder="Message*" rows="5" required></textarea>
+
+            {/* Hidden fields for FormSubmit */}
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_template" value="table" />
+
             <button type="submit" className="btn">Submit</button>
           </form>
         </>
