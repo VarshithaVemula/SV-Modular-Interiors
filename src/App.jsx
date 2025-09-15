@@ -9,6 +9,7 @@ import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
 import Gallery from "./pages/Gallery";
 import "./index.css";
+import ThankYou from "./pages/ThankYou"; 
 import ScrollToTop from "./components/ScrollToTop"; // Import the new component
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
         <Route path="/solutions/:solutionId" element={<Gallery />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/thank-you" element={<ThankYou />} /> 
       </Routes>
       <Footer />
     </Router>
