@@ -152,17 +152,16 @@ a {
   padding: 0;
 }
 
+/* Reduce the bottom margin of the 'About Us' heading */
 .about-us-heading {
-  font-size: 3rem;
-  font-weight: bold;
-  margin-bottom: 20px;
+  margin-bottom: 20px; /* Adjust this value as needed, from a larger default to a smaller one */
+  /* Other styles for the heading */
 }
 
+/* Adjust the top margin of the content wrapper */
 .about-content-wrapper {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 5px;
-  align-items: start;
+  margin-top: 20px; /* This value might be contributing to the gap. Reduce it if present. */
+  /* Other flexbox styles */
 }
 
 .about-text-content {
@@ -199,10 +198,114 @@ a {
   margin-top: 10px;
   font-size: 1.2rem;
   font-weight: bold;
-  color: #262223;
+  color: #f1e6e9;
   text-align: center;
 }
+/* Hero Carousel Styling */
+.hero-carousel {
+  /* Existing styles for background and height */
+  position: relative; /* Crucial for positioning arrows */
+  overflow: hidden; /* Ensures arrows don't spill out */
+}
 
+/* Overlay styling (already largely present, just ensuring full width) */
+.overlay {
+  height: 100%;
+  width: 100%;
+  position: absolute; /* Ensures overlay covers the whole hero */
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.4); /* Adjust opacity as needed */
+  padding: 20px; /* Add some padding for smaller screens */
+  box-sizing: border-box; /* Include padding in element's total width and height */
+}
+
+/* Styling for the hero title */
+.hero-carousel h1 {
+  font-size: clamp(2rem, 5vw, 4.5rem); /* Responsive font size */
+  color: #fff; /* White color for better contrast */
+  margin-bottom: 30px;
+  line-height: 1.2;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Adds depth */
+  max-width: 90%; /* Limit width for long titles */
+}
+
+/* Styling for the contact button */
+.contact-btn {
+  background-color: #fdf0e7ff; /* Your specified button color */
+  color: #333;
+  padding: 15px 30px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.contact-btn:hover {
+  background-color: #e0d0c0; /* Slightly darker on hover */
+  transform: translateY(-2px);
+}
+
+
+/* Carousel Navigation Arrows */
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  color: white;
+  border: none;
+  padding: 15px 20px; /* Increase padding for better click area */
+  cursor: pointer;
+  font-size: 2rem; /* Larger arrow icon */
+  z-index: 10; /* Ensure arrows are above the overlay */
+  transition: background-color 0.3s ease;
+  border-radius: 5px; /* Slightly rounded corners */
+}
+
+.carousel-arrow:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.left-arrow {
+  left: 15px; /* Position from the left edge */
+}
+
+.right-arrow {
+  right: 15px; /* Position from the right edge */
+}
+
+/* Responsive adjustments for arrows */
+@media (max-width: 768px) {
+  .carousel-arrow {
+    padding: 10px 15px; /* Smaller padding on small screens */
+    font-size: 1.5rem; /* Smaller arrow icon */
+  }
+
+  .left-arrow {
+    left: 10px;
+  }
+
+  .right-arrow {
+    right: 10px;
+  }
+  
+  .hero-carousel h1 {
+    font-size: clamp(1.8rem, 7vw, 3rem); /* Adjust font size further for small screens */
+  }
+
+  .contact-btn {
+    padding: 12px 25px;
+    font-size: 1rem;
+  }
+}
 /* Solutions Hero Section */
 .solutions-hero {
   background: #262223;
@@ -567,10 +670,114 @@ a {
   z-index: 1002;
 }
 
-/* WhatsApp Floating Button */
-.whatsapp-float {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 999;
+/* General Styling for Core Values Section */
+.core-values-section {
+  text-align: center;
+  margin-top: 60px;
+}
+
+.core-values-section h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #333;
+}
+
+.core-values-subtitle {
+  font-size: 1.1rem;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto 40px;
+}
+
+.core-values-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  justify-content: center;
+}
+
+.value-card {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  padding: 30px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.value-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.value-card .icon {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+.value-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.value-description {
+  font-size: 1rem;
+  color: #777;
+  line-height: 1.5;
+}
+
+/* Responsive adjustments */
+/* For tablets and smaller mobile devices */
+@media (max-width: 768px) {
+  /* About Us section layout */
+  .about-content-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .about-text-content {
+    text-align: center;
+    margin-right: 0;
+    margin-bottom: 30px;
+  }
+
+  .about-heading {
+    text-align: center;
+    font-size: 2rem;
+  }
+
+  .about-image-wrapper {
+    width: 100%;
+    max-width: 400px; /* Optional: limit card size on small screens */
+  }
+
+  /* Core Values section layout */
+  .core-values-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .core-values-section h2 {
+    font-size: 2rem;
+  }
+}
+/* General mobile-first styling for the about section */
+.about-content-wrapper {
+  display: flex;
+  flex-direction: column; /* This is the key change for mobile */
+  align-items: center;
+  gap: 2rem; /* Add some space between the text and the image */
+}
+
+/* Media query for larger screens (e.g., desktops, laptops) */
+@media (min-width: 769px) {
+  .about-content-wrapper {
+    flex-direction: row; /* Revert to a row layout for larger screens */
+    justify-content: space-between;
+    align-items: flex-start;
+  }
 }
