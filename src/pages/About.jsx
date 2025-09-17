@@ -58,7 +58,7 @@ function About() {
             className="about-image-wrapper card"
           >
             <img
-              src="/aboutimg.jpg"
+              src="/about.jpg"
               alt="Vemula Suresh Kumar, Our Visionary Founder"
               className="about-image"
             />
