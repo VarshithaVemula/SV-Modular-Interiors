@@ -43,7 +43,7 @@ function Footer() {
               </a>
             </li>
             <li>
-              <a href="#" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.instagram.com/sv_modular_interiors/" target="_blank" rel="noopener noreferrer">
                 <span className="social-icon">o</span> Instagram
               </a>
             </li>
